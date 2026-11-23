@@ -1,6 +1,6 @@
 # Awesome-Data-Exploration-Semantic-Search
 
-# Top Data Exploration & Semantic Search Ecosystem
+## Top Data Exploration & Semantic Search Ecosystem
 
 **Curated List of SaaS Products & Open-Source GitHub Projects**  
 *Focused on Hybrid Retrieval, Vector Search & Self-Hosted Discovery Engines*  
