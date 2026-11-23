@@ -71,7 +71,7 @@ Enterprise-ready hosted search engines and managed vector databases. Sorted in d
 
 Self-hosted engines, vector stores, and neural search libraries. Sorted in descending order by GitHub stargazers count. 🌟💻
 
-| Project | Stars | Language | License | Primary Capabilities |
+| Project | GitHub_Stars | Language | License | Primary Capabilities |
 | :--- | :--- | :--- | :--- | :--- |
 | **[Meilisearch](https://github.com/meilisearch/meilisearch)** | [![Stars](https://img.shields.io/github/stars/meilisearch/meilisearch?style=social&color=white)](https://github.com/meilisearch/meilisearch/stargazers) | Rust | MIT | 🚀 Blazing-fast, typo-tolerant search-as-you-type engine with built-in vector search and zero-configuration operational simplicity. |
 | **[Milvus](https://github.com/milvus-io/milvus)** | [![Stars](https://img.shields.io/github/stars/milvus-io/milvus?style=social&color=white)](https://github.com/milvus-io/milvus/stargazers) | Go / C++ | Apache-2.0 | 🚀 Cloud-native, distributed vector database engineered for massive billion-scale vector similarity exploration and retrieval. |
@@ -116,8 +116,8 @@ We welcome community contributions, corrections, and new project listings! 🙌
 1. **Fork the repository** on GitHub. 🍴
 2. **Add or update an entry** in `README.md` keeping to the tabular format:
    * SaaS entries require Company Name, Valuation/Market Cap, Starting Tier Price, Free Tier/Trial limits, and target use case.
-   * Open-source entries require Project Name, Shields.io social star badge linked to stargazers, primary language, license, and summary.
-3. **Ensure entries are sorted** by scale (SaaS table) or stars (Open-Source table). 🔢
+   * Open-source entries require Project Name, Shields.io social Stars_Badge linked to stargazers, primary language, license, and summary.
+3. **Ensure entries are sorted** by scale (SaaS table) or GitHub_Stars (Open-Source table). 🔢
 4. **Submit a pull request** with a concise description of changes. 🚀
 
 ---
