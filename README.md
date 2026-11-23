@@ -1,99 +1,106 @@
-# Awesome-Data-Exploration-Semantic-Search
+# Awesome Data Exploration & Semantic Search [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-## Top Data Exploration & Semantic Search Ecosystem
+> A curated directory of leading SaaS products, vector databases, neural search engines, and open-source frameworks for **Data Exploration**, **Hybrid Retrieval**, and **Semantic Search**.
 
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-*Focused on Hybrid Retrieval, Vector Search & Self-Hosted Discovery Engines*  
-**Last updated: March 2026**
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Data Exploration & Semantic Search**. These tools help teams move beyond keyword matching—combining vector similarity with traditional full-text search to let users find what they mean, not just what they typed, while exploring datasets through faceted navigation and relevance tuning.
-
-**Examples** include Algolia, Elastic Cloud, Typesense, Meilisearch, Pinecone, Weaviate, Qdrant, Marqo, and Vespa (the category leaders).
-
-**Open-source emphasis**: This section highlights every major active project for self-hosted semantic search, open-source vector engines, and community-driven retrieval—ideal for teams seeking data sovereignty and avoiding per-record or per-query SaaS pricing that compounds as datasets grow. The open-source landscape is genuinely functional: **Meilisearch** offers MIT-licensed typo-tolerant search with vector support in a single binary , **Qdrant** provides a purpose-built vector database with a free self-hosted tier , and **Vespa** delivers large-scale hybrid search with tensor ranking for multi-PB datasets .
-
-Contributions welcome! Open an PR to add/update entries. Keep descriptions factual and link to official sites.
-
-## Table of Contents
-- [SaaS/Hosted Platforms](#saas-products)
-- [Open-Source GitHub Projects](#open-source-github-projects)
-- [How to Contribute](#how-to-contribute)
-- [Disclaimer](#disclaimer)
-
-## SaaS/Hosted Platforms
-
-- **[Algolia](https://www.algolia.com/)**  
-  **The polished commercial standard for mission-critical search.** Sub-50ms search-as-you-type, mature React InstantSearch components, and analytics that reveal what users searched for and didn't find . **Pricing is double-billed**: **$0.50/1,000 searches AND $0.40/1,000 records**—a 200,000-product catalog costs ~$80/month in records before the first search . **Free tier: 10K records, 10K searches/month** . **NeuralSearch (vector/hybrid)** is enterprise-contract only . Best for e-commerce where search drives revenue and managed polish justifies the cost [citation:1][citation:7][citation:13].
-
-- **[Elastic Cloud](https://www.elastic.co/)**  
-  **The reference implementation for full-text search, now with vector support.** **Elastic Cloud from $95/month** for development workloads; production typically runs **hundreds to thousands per month** . **ELSER semantic search built in** . Self-hosted versions are free under SSPL/Elastic License 2.0 . Best when you already run Elastic for logs/observability and want to consolidate, or need genuinely complex queries (multilingual stemming, custom scoring, geo + text + filters) [citation:1][citation:7][citation:13].
-
-- **[Typesense Cloud](https://cloud.typesense.org/)**  
-  **The most predictable managed open-source search.** **Pricing is RAM-based, not per-request**—costs decouple from query volume, making it cost-effective for high-QPS applications . **Cloud from ~$25–30/month** (0.5 GB node); **HA clusters triple cost** (×3 nodes) . **Self-hosting is free under GPL-3.0** (more restrictive than MIT—legal review advised for some commercial use) . Best for autocomplete and instant search where every millisecond matters and query volume is high [citation:1][citation:7][citation:13].
-
-- **[Meilisearch Cloud](https://www.meilisearch.com/cloud)**  
-  **The most budget-predictable managed option.** **~$30/month for 100K documents + 50K searches**; marketed "from $20" . **Overages not shown on pricing page**—request a quote for your expected volume . **Self-hosting is free under MIT** (the most permissive license in the category) . Best for documentation sites, content-heavy applications, and teams wanting zero-config typo tolerance with predictable billing [citation:1][citation:7][citation:13].
-
-- **[Pinecone](https://www.pinecone.io/)**  
-  **The managed vector database benchmark.** **Serverless pricing**: **~$25/month for 1M vectors** with moderate queries; **~$78–199/month for 10M vectors** at 50K queries/day . **April 2026 price drop**: 40% lower storage and read costs . **Capacity fees still surprise at sustained load** . Best for teams wanting a fully managed vector store without operational overhead—but **self-hosted Qdrant/Weaviate undercut it 3–10× above 60–80M queries/month** [citation:8][citation:14].
-
-- **[Weaviate Cloud](https://console.weaviate.cloud/)**  
-  **The most flexible managed vector database.** **Hybrid search (vector + keyword + filters)**, GraphQL API, and modular architecture that lets you plug in any embedding model . **Pricing simplified to dimension-based**; **~$25/month for 1M vectors** but **~$200–400/month for 10M vectors** at 50K queries/day—significantly higher than Qdrant or Pinecone at scale . Best for teams wanting flexible query patterns and a mature hybrid search API [citation:2][citation:8][citation:14].
-
-- **[Qdrant Cloud](https://cloud.qdrant.io/)**  
-  **The most cost-efficient managed vector database at scale.** **~$9/month for 1M vectors**; **~$30–60/month for 10M vectors** at 50K queries/day—**stable pricing** with no per-query billing on self-hosted . **Free 1 GB tier** available . Best for teams wanting a purpose-built vector engine with transparent pricing and the option to self-host without re-architecture [citation:8][citation:14].
-
-- **[Marqo](https://www.marqo.ai/)**  
-  **The end-to-end tensor search engine that embeds text and images for you.** Built on Vespa—**handles embedding generation internally** rather than requiring a separate pipeline . **Best for multimodal product and image search** and prototyping semantic search without maintaining an embedding pipeline . **≤10 TB practical scale** (vs. Vespa's multi-PB) . Pricing is contact-for-quote; **no free trial listed** on comparison sites [citation:9][citation:15].
-
-- **[Vespa Cloud](https://vespa.ai/)**  
-  **The large-scale search engine for hybrid retrieval and ranking.** Supports **multi-PB datasets**, native horizontal scaling, geospatial, TTL/expiry, and streaming ingest . **Tensor ranking logic beyond nearest-neighbor**—structured filtering and text search in one query . **Self-hosted is free under Apache 2.0**; managed cloud on AWS, GCP, and Azure . Best for recommendation systems, ad serving, and RAG retrieval where ranking complexity and scale matter [citation:9][citation:15].
-
-- **[Coveo](https://www.coveo.com/)**  
-  **Enterprise AI search with deep integration into Salesforce, SAP, and ServiceNow.** **Custom annual contracts typically $30K–$1M+ ACV** based on query volume and indexed items; **Base plan ~$600/month for 100K queries**, Pro ~$1,320/month . **No self-serve plan**; Shopify integration is Shopify Plus only . Best for mid-to-large organizations with staff to tune relevance and a budget to match—**not for small teams wanting simple site search** [citation:4][citation:10].
-
-## Open-Source GitHub Projects
-
-- **[Meilisearch](https://github.com/meilisearch/meilisearch)**  
-  **The most developer-friendly open-source semantic search engine.** **MIT licensed**—the most permissive in the category . **Single binary**, zero-config setup with excellent typo tolerance and ranking heuristics out of the box . **Vector search supported** for semantic queries without separate infrastructure . **Self-hosting is free**; Meilisearch Cloud from ~$30/month . **Trade-offs**: smaller ecosystem than Elastic, and **vector search arrived later** than dedicated vector databases . **Best for documentation sites, content-heavy applications, and teams wanting fast developer adoption** with budget certainty [citation:1][citation:7][citation:13].
-
-- **[Typesense](https://github.com/typesense/typesense)**  
-  **The low-latency open-source search engine with built-in vector support.** **GPL-3.0** (more restrictive than MIT—legal review advised for some commercial use) . **Sub-50ms latency**, typo tolerance, instant indexing, faceted search, and **vector search built in** . **Self-hosting is free**; Typesense Cloud from ~$25–30/month with **RAM-based pricing** that decouples cost from query volume . **Trade-offs**: schema-based approach requires upfront planning; smaller community than Elasticsearch or Algolia . **Best for autocomplete, instant product search, and any use case where every millisecond of latency matters** [citation:1][citation:13].
-
-- **[Qdrant](https://github.com/qdrant/qdrant)**  
-  **The purpose-built open-source vector database with the most transparent self-hosted economics.** **No per-query billing on self-hosted**—you pay for infrastructure, not retrieval volume . **Free 1 GB managed tier** for evaluation . **Self-hosted undercuts Pinecone Serverless 3–10× above 60–80M queries/month** . **Best for teams wanting a focused vector engine** without the complexity of a full search platform—pair with a keyword engine if hybrid retrieval is required [citation:8][citation:14].
-
-- **[Vespa](https://github.com/vespa-engine/vespa)**  
-  **The open-source search engine for the most demanding hybrid retrieval.** **Apache 2.0 licensed**—permissive for commercial use . **Multi-PB scale**, native horizontal scaling, geospatial, TTL/expiry, and streaming ingest . **Tensor ranking** and structured filtering in one query; declarative grouping for rich facets . **Steep learning curve**—more complex than Qdrant or Meilisearch . **Best for recommendation systems, ad serving, and large-scale RAG** where ranking complexity and scale justify the operational investment [citation:9][citation:15].
-
-- **[Weaviate](https://github.com/weaviate/weaviate)**  
-  **The flexible open-source vector database with native hybrid search.** **Hybrid search (vector + keyword + filters)**, GraphQL API, and **modular architecture** that lets you plug in any model . **Active community** . **Self-hosted is free**; Weaviate Cloud ~$25/month for 1M vectors but **~$200–400/month for 10M vectors**—significantly more than Qdrant at scale . **Trade-off**: more complex than Pinecone, with a GraphQL learning curve . **Best for teams wanting flexible query patterns** and hybrid retrieval without a separate search engine [citation:2][citation:8].
-
-### Additional Strong Open-Source Options
-
-- **txtai** — All-in-one AI framework for semantic search, LLM orchestration, and language model workflows [citation:5].
-- **XERJ** — Local AI search and agent-memory server that autoindexes code, documents, logs, and PDFs, exposing full-text, vector, hybrid search, and MCP tools through an Elasticsearch-compatible API [citation:5][citation:11].
-- **Morphik** — Open-source multimodal RAG framework for building AI apps over private knowledge, with built-in embedding generation and vector search [citation:5][citation:11].
-- **CocoIndex** — Incremental data transformation engine for AI pipelines with built-in chunking, embedding, and source connectors that recomputes only changed inputs [citation:11].
-
-**Frameworks for building custom systems**: Combine **Meilisearch** for typo-tolerant content search, **Qdrant** for cost-efficient vector retrieval, and **Vespa** for complex hybrid ranking at scale. For RAG pipelines, **Morphik** or **CocoIndex** provide embedding and indexing infrastructure without a full search platform.
-
-## How to Contribute
-
-1. Fork the repo.
-2. Add/edit entries in `README.md` (follow existing format).
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-4. Submit PR with a short explanation.
-
-Star the repo if you find it useful!
-
-## Disclaimer
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-- Semantic search and vector platforms process potentially sensitive data and query patterns; enforce access controls, validate relevance quality, and review data residency requirements before committing.
-- **Pricing models in this category are not directly comparable and can produce surprises.** **Algolia double-bills records and searches**—a large catalog costs money even when nobody searches . **Pinecone's serverless capacity fees still surprise at sustained load** despite April 2026 price cuts . **Typesense Cloud bills 24/7 for the cluster**—cheap only at high utilization, and HA triples cost . **Meilisearch Cloud's overages aren't shown on the pricing page**—request a quote for your actual volume . **Self-hosted Qdrant/Weaviate undercut managed Pinecone 3–10× above 60–80M queries/month**—the $300/month Pinecone bill is the migration trigger . **Vespa and Marqo are not interchangeable**: Marqo handles embeddings internally for multimodal search, while Vespa is a large-scale hybrid engine requiring more setup . Validate whether you need keyword search (Meilisearch), vector retrieval (Qdrant), or hybrid ranking at scale (Vespa) before committing.
+Semantic search and data exploration platforms move beyond rigid keyword matching (BM25/TF-IDF) by fusing dense vector similarity with traditional inverted indexes. Whether engineering Retrieval-Augmented Generation (RAG) pipelines, building sub-50ms instant e-commerce discovery, or analyzing multi-terabyte internal data lakes, this repository catalogs battle-tested hosted services and self-hosted open-source technologies.
 
 ---
 
-**Made for search engineers, data analysts, and teams building semantic discovery infrastructure.**  
-Let's make data exploration and semantic search more open, relevance-driven, and cost-predictable.
+## Table of Contents
+
+- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
+- [SaaS & Hosted Platforms](#saas--hosted-platforms)
+- [Open-Source GitHub Projects](#open-source-github-projects)
+- [Architecture & Selection Guide](#architecture--selection-guide)
+- [How to Contribute](#how-to-contribute)
+- [Disclaimer & License](#disclaimer--license)
+
+---
+
+## Sector Overview & Market Dynamics
+
+The global vector database and semantic search infrastructure market is estimated at **$1.7B to $3.1B**, projected to surge past **$8B+ by 2030** at an estimated CAGR of ~25%, accelerated by enterprise adoption of LLMs, agentic workflows, and RAG architectures.
+
+The sector exhibits a **bifurcated market structure**: it is **moderately fragmented at the startup and application tier** (where specialized vector databases like Qdrant, Pinecone, and Weaviate compete alongside multimodal engines like Marqo), but is rapidly shifting toward **oligopolistic concentration at the infrastructure tier** as cloud hyperscalers (AWS, Azure, GCP) and incumbent enterprise platforms (Elasticsearch, PostgreSQL via `pgvector`, Databricks, MongoDB) integrate high-performance vector search directly as a native primitive.
+
+---
+
+## SaaS & Hosted Platforms
+
+Enterprise-ready hosted search engines and managed vector databases. Sorted in descending order by company scale (market cap / latest valuation).
+
+| Company / Product | Company Scale (Valuation / Market Cap) | Starting Tier Pricing | Free Tier / Trial Limits | Key Strengths & Target Use Case |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Elastic Cloud](https://www.elastic.co/)** | **~$8.5B Market Cap** *(ESTC, NYSE)* | **$95.00 / month** (Standard hosted deployment) | **14-day free trial**; 1 active deployment up to 8 GB total RAM (2 AZs × 4 GB) or 3 serverless projects (100 Search Power cap) | Industry-standard enterprise log analytics, complex hybrid BM25 + dense vector scoring (ELSER), and multi-index faceted search. |
+| **[Algolia](https://www.algolia.com/)** | **~$2.25B Valuation** *(Series D)* | **$0.50 / 1,000 searches** + **$0.40 / 1,000 records** (Grow Plan) | **Free forever plan**; up to 10,000 search requests/mo, 10,000 records, 1 application, 10 indices, and max 10 KB record size | Sub-50ms instant search-as-you-type, React InstantSearch frontend UI libraries, and rich e-commerce conversion analytics. |
+| **[Vespa Cloud](https://vespa.ai/)** | **~$1.15B Valuation** *(Piaggio Group / Spin-off context)* | **$0.05/vCPU-hr + $0.005/GB-RAM-hr** (~$35–$50/mo minimum compute) | **Free trial with $300 cloud credits**; runs on Startup tier specs with community support | Extreme-scale hybrid retrieval, multi-billion item serving, real-time tensor computation, and complex multi-stage re-ranking. |
+| **[Pinecone](https://www.pinecone.io/)** | **~$750M Valuation** *(Series B)* | **~$25.00 / month** (Serverless pay-as-you-go based on storage & read/write units) | **Free forever plan**; 1 index, up to 100,000 vectors (depending on dimension), 1 project, community support | Serverless vector database with zero infrastructure management; premier choice for fast-prototyping LLM memory and RAG pipelines. |
+| **[Coveo](https://www.coveo.com/)** | **~$350M Market Cap** *(CVO.TO, TSX)* | **$600.00 / month** (Base package; enterprise annual agreements scale $30k–$100k+) | **14-day free trial**; sandboxed environment with access to 25+ connectors, 15+ ML models, capped at 10,000 indexed items/hr | Enterprise AI search with deep native connectors for Salesforce, ServiceNow, SAP, and large intranet knowledge bases. |
+| **[Qdrant Cloud](https://cloud.qdrant.io/)** | **~$300M Valuation** *(Series B)* | **~$9.00 / month** (0.5 GB RAM cluster node) | **Free forever cluster**; 1 node with 1 GB RAM, ~0.5 vCPU, and 4 GB disk storage | Rust-powered vector database engine offering payload-based metadata filtering, binary quantization, and predictable capacity economics. |
+| **[Weaviate Cloud](https://console.weaviate.cloud/)** | **~$200M Valuation** *(Series B)* | **~$25.00 / month** (Serverless tier based on dimensions stored) | **14-day free trial** sandbox cluster; auto-expires after 14 days, limited to sandbox compute/memory capacity | Modular schema design, native vector + keyword hybrid search, GraphQL API, and plug-and-play integrations with embedding models. |
+| **[Marqo Cloud](https://www.marqo.ai/)** | **~$75M Valuation** *(Series A)* | **$0.059 / hour** (`marqo.basic` development shard, ~$43.00/mo) | **Free trial**; access to non-replicated basic development shard without high availability or SLA coverage | End-to-end multimodal vector engine that generates embeddings internally from raw text and images, streamlining complex search pipelines. |
+| **[Meilisearch Cloud](https://www.meilisearch.com/cloud)** | **~$50M Valuation** *(Early Stage)* | **$30.00 / month** (100,000 documents + 50,000 searches included) | **14-day free trial**; access to Meilisearch Cloud features across test environments | Ultra-fast typo-tolerant search engine with vector support, tailored for developer documentation sites and intuitive consumer apps. |
+| **[Typesense Cloud](https://cloud.typesense.org/)** | **Bootstrap / Lean Growth** *(Private)* | **$21.60 / month** (RAM-based dedicated cluster: 0.5 GB RAM, 1 vCPU, 10 GB SSD) | **Free trial with $50 usage credit**; valid across all cluster sizing profiles for initial testing | High-throughput, predictable RAM-based billing that completely decouples operational costs from search query request volumes. |
+
+---
+
+## Open-Source GitHub Projects
+
+Self-hosted engines, vector stores, and neural search libraries. Sorted in descending order by GitHub stargazers count.
+
+| Project | Stars | Language | License | Primary Capabilities |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Meilisearch](https://github.com/meilisearch/meilisearch)** | [![Stars](https://img.shields.io/github/stars/meilisearch/meilisearch?style=social&color=white)](https://github.com/meilisearch/meilisearch/stargazers) | Rust | MIT | Blazing-fast, typo-tolerant search-as-you-type engine with built-in vector search and zero-configuration operational simplicity. |
+| **[Milvus](https://github.com/milvus-io/milvus)** | [![Stars](https://img.shields.io/github/stars/milvus-io/milvus?style=social&color=white)](https://github.com/milvus-io/milvus/stargazers) | Go / C++ | Apache-2.0 | Cloud-native, distributed vector database engineered for massive billion-scale vector similarity exploration and retrieval. |
+| **[Qdrant](https://github.com/qdrant/qdrant)** | [![Stars](https://img.shields.io/github/stars/qdrant/qdrant?style=social&color=white)](https://github.com/qdrant/qdrant/stargazers) | Rust | Apache-2.0 | High-performance vector database with fine-grained JSON payload filtering, scalar/binary quantization, and SIMD hardware acceleration. |
+| **[Chroma](https://github.com/chroma-core/chroma)** | [![Stars](https://img.shields.io/github/stars/chroma-core/chroma?style=social&color=white)](https://github.com/chroma-core/chroma/stargazers) | Python / Rust | Apache-2.0 | AI-native open-source embedding database prioritizing developer ergonomics for LLM memory, local RAG apps, and document chunking. |
+| **[Typesense](https://github.com/typesense/typesense)** | [![Stars](https://img.shields.io/github/stars/typesense/typesense?style=social&color=white)](https://github.com/typesense/typesense/stargazers) | C++ | GPL-3.0 | In-memory, typo-tolerant search engine optimized for sub-50ms instant queries, faceted navigation, and dynamic vector embeddings. |
+| **[pgvector](https://github.com/pgvector/pgvector)** | [![Stars](https://img.shields.io/github/stars/pgvector/pgvector?style=social&color=white)](https://github.com/pgvector/pgvector/stargazers) | C | PostgreSQL | Open-source vector similarity extension for PostgreSQL supporting HNSW and IVFFlat indexes, bringing semantic search into relational SQL. |
+| **[Weaviate](https://github.com/weaviate/weaviate)** | [![Stars](https://img.shields.io/github/stars/weaviate/weaviate?style=social&color=white)](https://github.com/weaviate/weaviate/stargazers) | Go | BSD-3-Clause | AI-first vector database featuring native hybrid search (BM25 + vector fusion), modular vectorizers, and GraphQL query interfaces. |
+| **[OpenSearch](https://github.com/opensearch-project/OpenSearch)** | [![Stars](https://img.shields.io/github/stars/opensearch-project/OpenSearch?style=social&color=white)](https://github.com/opensearch-project/OpenSearch/stargazers) | Java | Apache-2.0 | Community-driven distributed search and analytics suite offering robust full-text search, k-NN vector search, and observability. |
+| **[txtai](https://github.com/neuml/txtai)** | [![Stars](https://img.shields.io/github/stars/neuml/txtai?style=social&color=white)](https://github.com/neuml/txtai/stargazers) | Python | Apache-2.0 | All-in-one embeddings database and neural framework for semantic search, LLM orchestration, language graph analysis, and RAG. |
+| **[Quickwit](https://github.com/quickwit-oss/quickwit)** | [![Stars](https://img.shields.io/github/stars/quickwit-oss/quickwit?style=social&color=white)](https://github.com/quickwit-oss/quickwit/stargazers) | Rust | AGPL-3.0 | Cloud-native search engine for big data directly querying Amazon S3 / Azure Blob Storage, optimized for cost-effective log and vector indexing. |
+| **[Vespa](https://github.com/vespa-engine/vespa)** | [![Stars](https://img.shields.io/github/stars/vespa-engine/vespa?style=social&color=white)](https://github.com/vespa-engine/vespa/stargazers) | C++ / Java | Apache-2.0 | Large-scale production serving engine for vector search, lexical matching, tensor math evaluation, and real-time multi-stage ranking. |
+
+---
+
+## Architecture & Selection Guide
+
+When deciding between hosted SaaS and self-hosted open-source solutions:
+
+1. **Typo Tolerance & Instant E-Commerce Search:**  
+   * **SaaS:** [Algolia](https://www.algolia.com/) (turnkey analytics & UI), [Meilisearch Cloud](https://www.meilisearch.com/cloud)  
+   * **Open Source:** [Meilisearch](https://github.com/meilisearch/meilisearch) (fastest developer setup), [Typesense](https://github.com/typesense/typesense) (in-memory speed)
+
+2. **RAG & GenAI Vector Knowledge Bases:**  
+   * **SaaS:** [Pinecone](https://www.pinecone.io/) (zero management), [Qdrant Cloud](https://cloud.qdrant.io/) (payload filtering)  
+   * **Open Source:** [Qdrant](https://github.com/qdrant/qdrant), [pgvector](https://github.com/pgvector/pgvector) (keep data in Postgres), [Chroma](https://github.com/chroma-core/chroma) (quick Python prototyping), [Weaviate](https://github.com/weaviate/weaviate)
+
+3. **Massive Datasets & Multi-Stage Re-Ranking (PB-scale):**  
+   * **SaaS:** [Vespa Cloud](https://vespa.ai/), [Elastic Cloud](https://www.elastic.co/)  
+   * **Open Source:** [Vespa](https://github.com/vespa-engine/vespa) (tensor computation), [Milvus](https://github.com/milvus-io/milvus) (distributed clustering), [OpenSearch](https://github.com/opensearch-project/OpenSearch)
+
+4. **Multimodal Search (Images, Audio, Video + Text):**  
+   * **SaaS:** [Marqo Cloud](https://www.marqo.ai/)  
+   * **Open Source:** [txtai](https://github.com/neuml/txtai)
+
+---
+
+## How to Contribute
+
+We welcome community contributions, corrections, and new project listings!
+
+1. **Fork the repository** on GitHub.
+2. **Add or update an entry** in `README.md` keeping to the tabular format:
+   * SaaS entries require Company Name, Valuation/Market Cap, Starting Tier Price, Free Tier/Trial limits, and target use case.
+   * Open-source entries require Project Name, Shields.io social star badge linked to stargazers, primary language, license, and summary.
+3. **Ensure entries are sorted** by scale (SaaS table) or stars (Open-Source table).
+4. **Submit a pull request** with a concise description of changes.
+
+---
+
+## Disclaimer & License
+
+- This list is community-curated for informational and architectural comparison purposes. It is not an endorsement.
+- All product names, logos, and brands are property of their respective owners.
+- Distributed under the [MIT License](LICENSE).
